@@ -25,6 +25,26 @@
             } else {return computerChoice = 'scissors';}  
         }
 
+        function getPlayerInput() {
+
+            // Prompts player to input r, p or s and returns rock, paper or scissors as appropriate (capital letters also work).
+            // If user enters something else, asks them to try again.
+
+            let playerChoice = prompt("We're playing rock paper scissors. Please enter r, p or s").toLowerCase();
+
+            while (!(playerChoice === 'r' || playerChoice === 'p' || playerChoice === 's')) {
+                playerChoice = prompt("Error - please try again! Enter r, p or s").toLowerCase();
+            }
+
+            if (playerChoice === 'r') {
+                return 'rock';
+            } else if (playerChoice === 'p') {
+                return 'paper';
+            } else {
+                return 'scissors';
+            }
+        }
+
         function playRound(playerSelection, computerSelection) {
             
             // Plays a round of rock paper scissors. Compares two parameters (the player's selection and the computer's selection)
@@ -47,10 +67,9 @@
             } else {return "It's a draw!";}
         }
         
-        // const playerSelection prompts to enter 'rock', 'paper' or 'scissors' (uppercase, lowercase or mix is accepted).
-        // This is clunky - will improve it at a later stage.
+        // Get either rock, paper or scissors for both the player and computer
 
-        const playerSelection = prompt('Please enter rock, paper or scissors').toLowerCase();
+        const playerSelection = getPlayerInput();
         const computerSelection = getComputerChoice();
 
         console.log(`You chose ${playerSelection}`);
