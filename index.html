@@ -28,7 +28,7 @@
         function getPlayerInput() {
 
             // Prompts player to input r, p or s and returns rock, paper or scissors as appropriate (capital letters also work).
-            // If user enters something else, asks them to try again.
+            // If user enters another letter, asks them to try again.
 
             let playerChoice = prompt("We're playing rock paper scissors. Please enter r, p or s").toLowerCase();
 
@@ -43,7 +43,7 @@
             } else {
                 return 'scissors';
             }
-        }
+        }       
 
         function playRound(playerSelection, computerSelection) {
             
@@ -53,33 +53,46 @@
             // Note: r > s, p > r, s > p
         
             if (playerSelection === 'rock' && computerSelection === 'paper') {
+                console.log('You lose! Paper beats Rock');
                 return 'You lose! Paper beats Rock';
             } else if (playerSelection === 'rock' && computerSelection === 'scissors') {
+                console.log('You win! Rock beats scissors');
                 return 'You win! Rock beats scissors';
             } else if (playerSelection === 'paper' && computerSelection === 'scissors') {
+                console.log('You lose! Scissors beats paper');
                 return 'You lose! Scissors beats paper';
             } else if (playerSelection === 'paper' && computerSelection === 'rock') {
+                console.log('You win! Paper beats rock');
                 return 'You win! Paper beats rock';
             } else if (playerSelection === 'scissors' && computerSelection === 'rock') {
+                console.log('You lose! Rock beats scissors');
                 return 'You lose! Rock beats scissors';
             } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
+                console.log('You win! Scissors beats paper');
                 return 'You win! Scissors beats paper';
-            } else {return "It's a draw!";}
+            } else {
+                console.log("It's a draw!");
+                return "It's a draw!";}
         }
-        
-        // Get either rock, paper or scissors for both the player and computer
 
-        const playerSelection = getPlayerInput();
-        const computerSelection = getComputerChoice();
+        function game() {
 
-        console.log(`You chose ${playerSelection}`);
-        console.log(`The computer chose ${computerSelection}`);
+            // Calls playRound() five times to play five rounds of rps
+            // For each round, user and computer both choose/assigned a new r, p or s   
 
-        // Declare result of this round
+            for (let roundNumber = 1; roundNumber <= 5; roundNumber++) {
+                const playerSelection = getPlayerInput();
+                const computerSelection = getComputerChoice();
+                console.log(`Round ${roundNumber}`);
+                console.log(`You chose ${playerSelection}`);
+                console.log(`The computer chose ${computerSelection}`);
+                playRound(playerSelection, computerSelection)
+            }
+        }
 
-        console.log(playRound(playerSelection, computerSelection));
+ 
 
-        
+        game();
 
     </script>
     
