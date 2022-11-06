@@ -28,13 +28,15 @@
         function getPlayerInput() {
 
             // Prompts player to input r, p or s and returns rock, paper or scissors as appropriate (capital letters also work).
-            // If user enters another letter, asks them to try again.
+            // If user enters anything else, asks them to try again.
 
-            let playerChoice = prompt("We're playing rock paper scissors. Please enter r, p or s").toLowerCase();
+            let playerChoice = prompt("We're playing rock paper scissors. Please enter r, p or s");
 
-            while (!(playerChoice === 'r' || playerChoice === 'p' || playerChoice === 's')) {
-                playerChoice = prompt("Error - please try again! Enter r, p or s").toLowerCase();
+            while ((!(playerChoice === 'r' || playerChoice === 'p' || playerChoice === 's' || playerChoice === 'R' || playerChoice === 'P' || playerChoice === 'S')) || playerChoice === null) {
+                playerChoice = prompt("Error - please try again! Enter r, p or s");
             }
+
+            playerChoice = playerChoice.toLowerCase();
 
             if (playerChoice === 'r') {
                 return 'rock';
@@ -43,7 +45,7 @@
             } else {
                 return 'scissors';
             }
-        }       
+    }    
 
         function playRound(playerSelection, computerSelection) {
             
@@ -75,7 +77,7 @@
             }
 
             console.log(`-----`);                                       // inserted for formatting reasons
-            console.log(`Player's score so far = ${playerWin}`);
+            console.log(`Your score so far = ${playerWin}`);
             console.log(`Computer's score so far = ${computerWin}`);
             console.log(` `);                                           // inserted for formatting reasons
         }
