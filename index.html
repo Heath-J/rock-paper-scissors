@@ -4,7 +4,7 @@
 
   <head>
     <meta charset='UTF-8'>
-    <title>Rock Paper Scissors</title>
+    <title>RPS6</title>
     <link rel="stylesheet" href="styles.css">
     <script src="javascript.js"></script>
   </head>
@@ -48,37 +48,43 @@
         function playRound(playerSelection, computerSelection) {
             
             // Plays a round of rock paper scissors. Compares two parameters (the player's selection and the computer's selection)
-            // and returns the result.
+            // and logs the result in the console.
 
             // Note: r > s, p > r, s > p
         
             if (playerSelection === 'rock' && computerSelection === 'paper') {
                 console.log('You lose! Paper beats Rock');
-                return 'You lose! Paper beats Rock';
+                computerWin++;
             } else if (playerSelection === 'rock' && computerSelection === 'scissors') {
                 console.log('You win! Rock beats scissors');
-                return 'You win! Rock beats scissors';
+                playerWin++;
             } else if (playerSelection === 'paper' && computerSelection === 'scissors') {
                 console.log('You lose! Scissors beats paper');
-                return 'You lose! Scissors beats paper';
+                computerWin++;
             } else if (playerSelection === 'paper' && computerSelection === 'rock') {
                 console.log('You win! Paper beats rock');
-                return 'You win! Paper beats rock';
+                playerWin++;
             } else if (playerSelection === 'scissors' && computerSelection === 'rock') {
                 console.log('You lose! Rock beats scissors');
-                return 'You lose! Rock beats scissors';
+                computerWin++;
             } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
                 console.log('You win! Scissors beats paper');
-                return 'You win! Scissors beats paper';
+                playerWin++;
             } else {
                 console.log("It's a draw!");
-                return "It's a draw!";}
+            }
+
+            console.log(`-----`);                                       // inserted for formatting reasons
+            console.log(`Player's score so far = ${playerWin}`);
+            console.log(`Computer's score so far = ${computerWin}`);
+            console.log(` `);                                           // inserted for formatting reasons
         }
 
         function game() {
 
-            // Calls playRound() five times to play five rounds of rps
-            // For each round, user and computer both choose/assigned a new r, p or s   
+            // Calls playRound() five times to play five rounds of rock paper scissors
+            // For each round, user and computer both choose/assigned a new r, p or s
+            // Overall winner declared at the end
 
             for (let roundNumber = 1; roundNumber <= 5; roundNumber++) {
                 const playerSelection = getPlayerInput();
@@ -86,11 +92,26 @@
                 console.log(`Round ${roundNumber}`);
                 console.log(`You chose ${playerSelection}`);
                 console.log(`The computer chose ${computerSelection}`);
-                playRound(playerSelection, computerSelection)
+                playRound(playerSelection, computerSelection);
+            }
+
+            console.log(` `);                                           // inserted for formatting reasons
+            
+            if (playerWin > computerWin) {
+                console.log(`Congratulations! You are the overall winner!`);
+            } else if (playerWin < computerWin) {
+                console.log(`Bad luck! The computer is the overall winner!`);
+            } else {
+                console.log(`It's a draw...there's no overall winner!`);
             }
         }
 
  
+        let playerWin = 0;
+        let computerWin = 0;
+
+        // playerwin and computerWin need to be defined outside of the two functions that use them [game() and playRound()]
+        // or they don't work (due to scope)
 
         game();
 
