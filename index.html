@@ -6,117 +6,30 @@
     <meta charset='UTF-8'>
     <title>Rock Paper Scissors</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="javascript.js"></script>
+    <script src="javascript.js" defer></script>
   </head>
 
   <body>
 
+    <h1>Rock Paper Scissors!</h1>
+
+    <h4>The first player to reach 5 points wins</h4>
+
+    <button class="pickButton" id="rockButton">Rock</button>
+
+    <button class="pickButton" id="paperButton">Paper</button>
+
+    <button class="pickButton" id="scissorsButton">Scissors</button>
+
+    <div id="results" style="white-space: pre"></div>
+
+    <!-- style="white-space: pre" added to div for template literal line break to work -->
+
+    <div id="gameOverMessage" style="white-space: pre"></div> 
+
     <script>
 
-        function getComputerChoice() {
-
-            // Assigns a random number from 1 to 3 to the computer. Returns either rock (1), paper(2) or scissors (3).
-
-            const computerRandom = Math.floor((Math.random() * 3) + 1);
-            if (computerRandom === 1) {
-                return computerChoice = 'rock';
-            } else if (computerRandom === 2) {
-                return computerChoice = 'paper';
-            } else {return computerChoice = 'scissors';}  
-        }
-
-        function getPlayerInput() {
-
-            // Prompts player to input r, p or s and returns rock, paper or scissors as appropriate (capital letters also work).
-            // If user enters anything else, asks them to try again.
-
-            let playerChoice = prompt("We're playing rock paper scissors. Please enter r, p or s");
-
-            while ((!(playerChoice === 'r' || playerChoice === 'p' || playerChoice === 's' || playerChoice === 'R' || playerChoice === 'P' || playerChoice === 'S')) || playerChoice === null) {
-                playerChoice = prompt("Error - please try again! Enter r, p or s");
-            }
-
-            playerChoice = playerChoice.toLowerCase();
-
-            if (playerChoice === 'r') {
-                return 'rock';
-            } else if (playerChoice === 'p') {
-                return 'paper';
-            } else {
-                return 'scissors';
-            }
-    }    
-
-        function playRound(playerSelection, computerSelection) {
-            
-            // Plays a round of rock paper scissors. Compares two parameters (the player's selection and the computer's selection)
-            // and logs the result in the console.
-
-            // Note: r > s, p > r, s > p
         
-            if (playerSelection === 'rock' && computerSelection === 'paper') {
-                console.log('You lose! Paper beats Rock');
-                computerWin++;
-            } else if (playerSelection === 'rock' && computerSelection === 'scissors') {
-                console.log('You win! Rock beats scissors');
-                playerWin++;
-            } else if (playerSelection === 'paper' && computerSelection === 'scissors') {
-                console.log('You lose! Scissors beats paper');
-                computerWin++;
-            } else if (playerSelection === 'paper' && computerSelection === 'rock') {
-                console.log('You win! Paper beats rock');
-                playerWin++;
-            } else if (playerSelection === 'scissors' && computerSelection === 'rock') {
-                console.log('You lose! Rock beats scissors');
-                computerWin++;
-            } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
-                console.log('You win! Scissors beats paper');
-                playerWin++;
-            } else {
-                console.log("It's a draw!");
-            }
-
-            console.log(`-----`);                                       // inserted for formatting reasons
-            console.log(`Your score so far = ${playerWin}`);
-            console.log(`Computer's score so far = ${computerWin}`);
-            console.log(` `);                                           // inserted for formatting reasons
-        }
-
-        function game() {
-
-            // Calls playRound() five times to play five rounds of rock paper scissors
-            // For each round, user and computer both choose/assigned a new r, p or s
-            // Overall winner declared at the end
-
-            for (let roundNumber = 1; roundNumber <= 5; roundNumber++) {
-                const playerSelection = getPlayerInput();
-                const computerSelection = getComputerChoice();
-                console.log(`Round ${roundNumber}`);
-                console.log(`You chose ${playerSelection}`);
-                console.log(`The computer chose ${computerSelection}`);
-                playRound(playerSelection, computerSelection);
-            }
-
-            console.log(` `);                                           // inserted for formatting reasons
-            
-            if (playerWin > computerWin) {
-                console.log(`Congratulations! You are the overall winner!`);
-            } else if (playerWin < computerWin) {
-                console.log(`Bad luck! The computer is the overall winner!`);
-            } else {
-                console.log(`It's a draw...there's no overall winner!`);
-            }
-        }
-
- 
-        let playerWin = 0;
-        let computerWin = 0;
-
-        // playerwin and computerWin need to be defined outside of the two functions that use them [game() and playRound()]
-        // or they don't work (due to scope)
-
-        game();
-
     </script>
     
   </body>
