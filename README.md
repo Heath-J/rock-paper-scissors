@@ -1,5 +1,5 @@
 # rock-paper-scissors
 
-A simple rock paper scissors game with results displayed in the console log.
+A simple rock paper scissors game.
 
-GUI to be added later!
+Styling to be added later!
