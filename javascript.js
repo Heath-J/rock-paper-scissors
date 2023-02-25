@@ -7,13 +7,14 @@ function displayGameOverMessage () {
         gameOver.textContent = ` 
 The game has finished - please click the button to play again!
  `;                                                                         // Blank lines added for formatting reasons
-        gameOverMessage.replaceChildren(gameOver);                          // style="white-space: pre" added to the div for the 
+        results.replaceChildren(gameOver);                                  // style="white-space: pre" added to the div for the 
         const refreshPage = document.createElement('button');               // line break to work on screen
-        refreshPage.textContent = 'Click me!';
+        refreshPage.classList.add("playAgainButton")
+        refreshPage.textContent = 'Play again';
         refreshPage.addEventListener('click', () => {
             window.location.reload();
         });
-        gameOverMessage.appendChild(refreshPage);
+        results.appendChild(refreshPage);
 }
     
 function getComputerChoice() {
@@ -86,7 +87,7 @@ function declareWinner (playerWin, computerWin) {
 
 // Compares the player's and computer's overall scores and declares the winner
 
-    const winner = document.createElement('h3');
+    const winner = document.createElement('h2');
     if (playerWin > computerWin) {
         winner.textContent = 'Game finished! Yay, you won!';
     } else {
