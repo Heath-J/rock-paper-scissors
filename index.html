@@ -2,36 +2,74 @@
 
 <html lang='en'>
 
-  <head>
+<head>
     <meta charset='UTF-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>Rock Paper Scissors</title>
     <link rel="stylesheet" href="styles.css">
     <script src="javascript.js" defer></script>
-  </head>
+</head>
 
-  <body>
+<body>
 
-    <h1>Rock Paper Scissors!</h1>
+    <div id="top">
 
-    <h4>The first player to reach 5 points wins</h4>
+        <div id="headingText">
 
-    <button class="pickButton" id="rockButton">Rock</button>
+            <div id="title">Rock Paper Scissors</div>
 
-    <button class="pickButton" id="paperButton">Paper</button>
+            <h3>The first player to reach 5 points wins!</h3>
 
-    <button class="pickButton" id="scissorsButton">Scissors</button>
+        </div>
 
-    <div id="results" style="white-space: pre"></div>
+        <img id="topImg"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Rock-paper-scissors.svg/220px-Rock-paper-scissors.svg.png">
 
-    <!-- style="white-space: pre" added to div for template literal line break to work -->
+    </div>
 
-    <div id="gameOverMessage" style="white-space: pre"></div> 
+    <div id="container">
 
-    <script>
+        <div id="pickButtonContainer">
 
-        
-    </script>
-    
-  </body>
+            <div id="rockButtonContainer">
+
+                <button class="pickButton" id="rockButton"></button>
+
+                <div class="hoverText" id="rockHoverText">&nbsp&nbsp&nbsp&nbsp&nbspClick me<br>to choose rock!</div>
+
+            </div>
+
+            <div id="paperButtonContainer">
+
+                <button class="pickButton" id="paperButton"></button>
+
+                <div class="hoverText" id="paperHoverText">&nbsp&nbsp&nbsp&nbsp&nbspClick me<br>to choose paper!</div>
+
+            </div>
+
+            <div id="scissorsButtonContainer">
+
+                <button class="pickButton" id="scissorsButton"></button>
+
+                <div class="hoverText" id="scissorsHoverText">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspClick me<br>to choose scissors!</div>
+
+            </div>
+
+        </div>
+
+        <div id="results" style="white-space: pre"></div>
+
+    </div>
+
+        <!-- style="white-space: pre" added to div so that template literal line break works -->
+
+        <!-- <div id="gameOverMessage" style="white-space: pre"></div> NOT BEING USED AT THE MOMENT -->
+
+        <script>
+
+
+        </script>
+
+</body>
 
 </html>
