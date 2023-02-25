@@ -1,0 +1,133 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: antiquewhite;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#top {
+    display: flex;
+    align-items: center;
+    width: 70%;
+    justify-content: space-between;
+    padding: 0 200px;
+}
+
+#title {
+    display: flex;
+    text-shadow: 2px 2px 2px red;
+    font-size: 60px;
+}
+
+#topImg {
+    display: flex;
+    padding-right: 50px;
+}
+
+h3 {
+    font-style: italic;
+}
+
+#container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 90%;
+    padding-top: 50px;
+}
+
+#pickButtonContainer {
+    flex: 0 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 24px;
+    gap: 30px;
+}
+
+#results {
+    flex: 0 0 auto;
+    width: 350px;
+    font-weight: bold;
+    white-space: pre-wrap;
+}
+
+.pickButton {
+    border: none;
+    border-radius: 12px;
+    padding: 100px 110px; 
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 8px 16px 0;
+}
+
+.pickButton:active {
+    transform: translateY(4px);
+}
+
+#rockButton {
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Kummakivi_balancing_rock_in_Ruokolahti%2C_Finland.jpg/220px-Kummakivi_balancing_rock_in_Ruokolahti%2C_Finland.jpg);
+}
+
+#paperButton {
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/15_reams_of_paper_stacked_on_the_floor.jpg/220px-15_reams_of_paper_stacked_on_the_floor.jpg);
+}
+
+#scissorsButton {
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Standard_household_scissors.jpg/220px-Standard_household_scissors.jpg);
+}
+
+.hoverText {
+    display: none;
+}
+
+#rockButton:hover + #rockHoverText {
+    display: flex;
+    position: relative;
+    bottom: 110px;
+    left: 40px;
+    font-size: large;
+    color: white;
+    font-weight: bolder;
+    text-shadow: 2px 2px 2px black;
+}
+
+#paperButton:hover  + #paperHoverText {
+    display: flex;
+    position: relative;
+    bottom: 110px;
+    left: 45px;
+    font-size: large;
+    color: white;
+    font-weight: bolder;
+    text-shadow: 2px 2px 2px black;
+}
+
+#scissorsButton:hover + #scissorsHoverText {
+    display: flex;
+    position: relative;
+    bottom: 110px;
+    left: 25px;
+    font-size: large;
+    color: aquamarine;
+    font-weight: bolder;
+    text-shadow: 2px 2px 2px black;
+}
+
+.playAgainButton {
+    width: 250px;
+    height: 100px;
+    font-size: x-large;
+    font-weight: bold;
+    border-radius: 4px;
+    justify-self: center;
+    color: black;
+    border-color: red;
+    margin-top: 20px;
+    margin-left: 120px;
+    box-shadow: 0 8px 16px 0;
+}
+
+.playAgainButton:active {
+    transform: translateY(4px);
+}
